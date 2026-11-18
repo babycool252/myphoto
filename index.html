@@ -1,4 +1,36 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https:; connect-src 'self' https://api.github.com https://api.cloudinary.com; object-src 'none'; base-uri 'none'; form-action 'none'"><meta name="theme-color" content="#f7f6f3"><title>ATELIER · 私人影像画廊</title><link rel="stylesheet" href="style.css?v=visibility-1"></head><body><header class="top"><a class="brand" href="#">ATELIER<span> / IMAGE ARCHIVE</span></a><nav><a href="#gallery">作品</a><a href="#about">关于</a><button id="adminToggle" class="navbtn">管理图库</button></nav></header><section class="hero"><div class="eyebrow">A PERSONAL VISUAL ARCHIVE · EST. 2026</div><h1>留住每一帧<br><em>值得收藏的瞬间。</em></h1><p>一座为影像而生的私人画廊。按场景、穿搭与灵感整理你的创作。</p><a class="primary" href="#gallery">浏览图库 <span>↗</span></a><div class="hero-bottom"><span>THE COLLECTION</span><span id="heroCount">00 IMAGES</span></div></section><main id="gallery"><div class="section-head"><div><div class="eyebrow">CURATED COLLECTION</div><h2>影像收藏 <span id="count">(0)</span></h2></div><input id="search" placeholder="搜索标题、标签…" aria-label="搜索图片"></div><div class="filters" id="filters"></div><p id="galleryNotice" class="gallery-notice" role="status" hidden></p><div class="masonry" id="grid"></div><div id="empty" class="empty"><div class="empty-symbol">✳</div><h3>你的画廊，等待第一张作品。</h3><p>点击右上角「管理图库」，添加图片并发布。</p><button class="primary" id="emptyAdd">添加第一张作品 ↗</button></div><p id="noResults" class="empty" hidden>没有找到符合条件的作品。</p><button id="more" class="secondary more-results" hidden>加载更多作品</button></main><section id="about" class="about"><div class="eyebrow">ABOUT THE ARCHIVE</div><p>关于光影、姿态、衣着与生活的视觉记录。<br>在这里，让每一张图片拥有自己的位置。</p></section><footer><span>ATELIER © 2026</span><span>BUILT FOR THE LOVE OF IMAGES</span></footer><dialog id="admin"><div class="dialog-head"><div><div class="eyebrow">COLLECTION MANAGER</div><h2>图库管理</h2></div><button class="close" data-close="admin" aria-label="关闭">×</button></div><section class="visibility-panel" aria-labelledby="visibilityHeading">
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https:; connect-src 'self' https://api.github.com https://api.cloudinary.com; object-src 'none'; base-uri 'none'; form-action 'none'"><meta name="theme-color" content="#f7f6f3"><title>ATELIER · 私人影像画廊</title><link rel="stylesheet" href="style.css?v=collections-1"></head><body><header class="top"><a class="brand" href="#">ATELIER<span> / IMAGE ARCHIVE</span></a><nav><a href="#gallery/style">按风格</a><a href="#gallery/scene">按场景</a><button id="adminToggle" class="navbtn">管理图库</button></nav></header><main id="gallery" class="collection-gallery">
+  <header class="collection-intro">
+    <div>
+      <div class="eyebrow">ATELIER / IMAGE ARCHIVE</div>
+      <h1>影像<span>图集</span></h1>
+      <p id="archiveCount"></p>
+    </div>
+    <form id="gallerySearch" role="search">
+      <label class="sr-only" for="search">搜索图片</label>
+      <input id="search" type="search" placeholder="搜索照片、服装、场景…" autocomplete="off">
+      <button type="submit" class="secondary">搜索</button>
+    </form>
+  </header>
+  <nav id="collectionTabs" aria-label="图库索引" class="collection-tabs">
+    <a href="#gallery" data-axis="">图集总览</a>
+    <a href="#gallery/style" data-axis="style">按风格</a>
+    <a href="#gallery/scene" data-axis="scene">按场景</a>
+  </nav>
+  <p id="galleryNotice" class="gallery-notice" role="status" hidden></p>
+  <p id="galleryLoad" role="status">正在加载图集…</p>
+  <div id="collectionIndex"></div>
+  <section id="collectionView" hidden aria-labelledby="collectionTitle">
+    <div class="album-head">
+      <a id="collectionBack" href="#gallery">‹ 返回图集</a>
+      <h2 id="collectionTitle" tabindex="-1"></h2>
+      <p id="count"></p>
+    </div>
+    <div class="masonry" id="grid"></div>
+    <p id="noResults" class="empty" hidden>没有找到符合条件的作品。</p>
+    <button id="more" class="secondary more-results" hidden>加载更多作品</button>
+  </section>
+  <div id="empty" class="empty" hidden><h2>暂无展出的作品</h2><button class="secondary" id="emptyAdd">管理图库</button></div>
+</main><section id="about" class="about"><div class="eyebrow">ABOUT THE ARCHIVE</div><p>关于光影、姿态、衣着与生活的视觉记录。<br>在这里，让每一张图片拥有自己的位置。</p></section><footer><span>ATELIER © 2026</span><span>BUILT FOR THE LOVE OF IMAGES</span></footer><dialog id="admin"><div class="dialog-head"><div><div class="eyebrow">COLLECTION MANAGER</div><h2>图库管理</h2></div><button class="close" data-close="admin" aria-label="关闭">×</button></div><section class="visibility-panel" aria-labelledby="visibilityHeading">
 <h3 id="visibilityHeading">管理公开展示</h3>
 <form id="githubConnect">
   <p>连接 GitHub 后，打开任意已发布的照片，点击「从展示隐藏」。</p>
@@ -22,4 +54,4 @@
 <p id="hideExplain">发布完成后，访客将无法在图库中浏览这张图。图片直链依然可以访问，你也可以在管理页恢复展示。</p>
 <p id="hideStatus" role="status"></p>
 <div class="visibility-actions"><button id="hideCancel" class="secondary" type="button" autofocus>取消</button><button id="hideSubmit" class="primary" type="button">确认隐藏</button></div>
-</dialog><script src="app.js?v=visibility-1"></script></body></html>
+</dialog><script src="app.js?v=collections-1"></script></body></html>
