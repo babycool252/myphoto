@@ -2,3 +2,30 @@
 
 .more-results { display: block; margin: 2rem auto 0; }
 [hidden] { display: none !important; }
+
+.visibility-panel { margin: 18px 0 24px; border-block: 1px solid var(--line); padding: 18px 0; }
+.visibility-panel h3, .visibility-panel h4 { margin: 0 0 12px; font-weight: 600; }
+.visibility-panel h4 { margin-top: 22px; }
+.visibility-panel p, .visibility-actions { font-size: 13px; line-height: 1.6; }
+#githubConnect label { margin-bottom: 6px; }
+#githubToken { display: block; width: 100%; padding: 12px; border: 1px solid var(--line); }
+.visibility-actions, .viewer-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.visibility-status, .gallery-notice { font-size: 13px; line-height: 1.6; }
+.visibility-status:empty, #hideStatus:empty { display: none; }
+.gallery-notice { padding: 12px 14px; margin-bottom: 20px; border: 1px solid var(--line); background: #efeee9; }
+.hidden-photos { list-style: none; padding: 0; margin: 0; }
+.hidden-photos li { display: grid; grid-template-columns: 42px minmax(0,1fr) auto; gap: 12px; align-items: center; padding: 8px 0; border-top: 1px solid var(--line); font-size: 13px; }
+.hidden-photos img { width: 42px; height: 48px; object-fit: cover; }
+.hidden-photos span { overflow-wrap: anywhere; }
+.upload-tools summary { cursor: pointer; font-weight: 600; font-size: 13px; }
+#hidePhoto { color: white; border: 1px solid #8e8e8e; background: transparent; padding: 8px 10px; font-size: 12px; }
+#hideConfirm { width: min(440px, 92vw); padding: 24px; }
+#hideConfirm h2 { margin: 0; font-weight: 600; }
+#hideExplain, #hideStatus { font-size: 13px; line-height: 1.7; }
+#hideTitle { overflow-wrap: anywhere; }
+button:disabled { cursor: default; opacity: .6; }
+@media (max-width: 650px) {
+  #admin { padding: 20px; }
+  .viewer-meta { flex-wrap: wrap; gap: 8px; }
+  .viewer-actions { gap: 8px 12px; }
+}
