@@ -23,13 +23,10 @@
 
 说明：未导出前，上传记录只存在当前浏览器的 localStorage 中；清除浏览器数据可能导致列表记录丢失，但不删除 Cloudinary 上的原图。可再次用图片 URL 构建数据。
 
-## 3. 免费部署（GitHub Pages）
-1. 注册 GitHub，创建一个公开仓库（例如 `atelier-gallery`）。
-2. 将本文件夹中的 `index.html`、`style.css`、`app.js`、`gallery.json` 上传到仓库根目录。
-3. 仓库 Settings → Pages → Build and deployment，选择 Deploy from a branch，分支 main，目录 /(root)。
-4. 等待部署完成，网址一般是 `https://用户名.github.io/atelier-gallery/`。
+## 3. GitHub Pages 部署
+仓库使用 GitHub Actions 发布站点。工作流将根目录中的网页文件与 `atelier-images-*.zip` 内的图片合并为公开站点，站点地址为 https://babycool252.github.io/myphoto/ 。
 
-注意：公开 GitHub 仓库内的 `gallery.json` 和图片 URL 对所有人可见。不要上传私人照片或敏感资料。Cloudinary 图片为公开可访问链接。
+图库数据保存在 `gallery.json` 中。网站图片包含适合浏览的大图和缩略图。将导出的 `gallery.json` 提交到 `main` 后，工作流会自动重新部署。
 
 ## 4. 重要限制
 - 这是**可部署的第一版**，不是具备账号权限、在线数据库和自动同步的完整后台。
